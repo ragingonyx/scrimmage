@@ -155,8 +155,14 @@ environment:
 
 Install the python dependencies with specific version numbers:
 
+Ubuntu 16.04: 
+
     (env)$ pip install -r ./python/requirements.txt
 
+Ubuntu 18.04:
+
+    (env)$ pip3 install -r ./python/requirements.txt
+    
 Re-build the scrimmage project within the virtual environment:
 
     (env)$ cmake .. -DPYTHON_MIN_VERSION=3.6
@@ -167,7 +173,14 @@ Re-build the scrimmage project within the virtual environment:
 To install scrimmage's python bindings:
 
     (env)$ cd /path/to/scrimmage/python
+
+Ubuntu 16.04:
+
     (env)$ python setup.py develop
+
+Ubuntu 18.04:
+
+    (env)$ python3 setup.py develop
 
 ## Build SCRIMMAGE Documentation
 
@@ -418,12 +431,6 @@ When running cmake, the user gets the cmake warning:
     but not all the files it references.
 
 This is a VTK6 Ubuntu package bug. It can be ignored.
-
-### Problem: I do not see building extrusions in the SCRIMMAGE GUI
-
-SCRIMMAGE uses vtkGeoJSONReader to load polygon extrusion data from a GeoJSON file. This VTK feature was added in VTK7. Since this feature is not available in older versions, SCRIMMAGE does not load building data if the installed VTK version is less than 7. Therefore, the remedy is to upgrade VTK. To install VTK7 on Ubuntu, run the following command:
-
-    $ sudo apt-get install libvtk7-dev
 
 ### Problem: Docker Container Can't Access Internet
 
